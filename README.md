@@ -11,3 +11,8 @@ Boilerplate Code for Node Projects.
 
 * ``yarn debug`` or ``npm run debug`` to work in development mode.
 * ``npm run build`` and ``npm run start`` to build and start production server.
+
+## Branches
+
+* Database setup code is on **mongo** branch.
+* Redis setup code is on **redis** branch.
