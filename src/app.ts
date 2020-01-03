@@ -9,6 +9,7 @@ import bodyParser from "body-parser";
 import errorHandler from "errorhandler";
 import cors from "cors";
 import logger from "./util/logger.util";
+import {redisService} from "./services/redis.service";
 import {jobManager} from "./jobs";
 
 export class Application {
@@ -61,6 +62,7 @@ export class Application {
 
     // Services
     dbService;
+    redisService;
   }
 
   private initRoutes(): void {
