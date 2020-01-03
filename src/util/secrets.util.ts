@@ -11,3 +11,5 @@ export const ENV_APP_PORT_REST = +(process.env.APP_PORT_REST || 3000);
 export const DB_PATH = process.env.DB_PATH;
 export const DB_USER = process.env.DB_USER;
 export const DB_PASS = process.env.DB_PASS;
+
+export const REDIS_PORT = +(process.env.REDIS_PORT || 3000);
