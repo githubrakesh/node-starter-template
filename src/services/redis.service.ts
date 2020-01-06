@@ -21,7 +21,7 @@ class RedisService {
     return new RedisService();
   }
 
-  public async set(key: string, value: any, timeout: number): Promise<void> {
+  public async set(key: string, value: any, timeout: number = null): Promise<void> {
     const args: any[] = [key, JSON.stringify(value)];
     if (timeout) {
       args.push('PX', timeout);
