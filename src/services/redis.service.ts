@@ -12,7 +12,7 @@ class RedisService {
 
     this.redisClient.setAsync = promisify(this.redisClient.set).bind(this.redisClient);
     this.redisClient.getAsync = promisify(this.redisClient.get).bind(this.redisClient);
-    this.redisClient.listKeysAsync = promisify(this.redisClient.keys).bind(this.redisClient);
+    this.redisClient.scanAsync = promisify(this.redisClient.scan).bind(this.redisClient);
     this.redisClient.delAsync = promisify(this.redisClient.del).bind(this.redisClient);
     this.redisClient.flushAsync = promisify(this.redisClient.flushdb).bind(this.redisClient);
   }
@@ -34,8 +34,8 @@ class RedisService {
     return JSON.parse(value);
   }
 
-  public async listKeys(pattern: string = "*"): Promise<string[]> {
-    return await this.redisClient.listKeysAsync(pattern);
+  public async listKeys(db: number = 0): Promise<string[]> {
+    return await this.redisClient.scanAsync(db);
   }
 
   public async delete(key: string): Promise<void> {
@@ -50,7 +50,7 @@ class RedisService {
 interface RedisWrapper extends RedisClient {
   setAsync?(...args): Promise<void>;
   getAsync?(key: string): Promise<string>;
-  listKeysAsync?(pattern: string): Promise<string[]>;
+  scanAsync?(db: number): Promise<string[]>;
   delAsync?(key: string): Promise<void>;
   flushAsync?(): Promise<void>;
 }
