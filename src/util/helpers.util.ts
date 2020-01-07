@@ -99,4 +99,8 @@ export class Helpers {
       }
     });
   }
+
+  public static epochInMillis(expireAt: any) {
+    return expireAt instanceof Date ? expireAt.getTime() : expireAt;
+  }
 }

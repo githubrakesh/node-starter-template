@@ -2,6 +2,7 @@ import logger from "../util/logger.util";
 import {APP_IDENTIFIER, DB_PASS, DB_PATH, DB_USER} from "../util/secrets.util";
 import mongoose from "mongoose";
 import Sample from "../models/sample.model";
+import {cacheService} from "./cache.service";
 
 class DBService {
   private static _instance: DBService;
@@ -20,6 +21,8 @@ class DBService {
       .catch((error) => logger.error(error));
 
     this.initModels();
+
+    cacheService.enableQueryCaching();
   }
 
   static getInstance(): DBService {
