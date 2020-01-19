@@ -15,4 +15,5 @@ Boilerplate Code for Node Projects.
 ## Branches
 
 * Database setup code is on **mongo** branch.
+* Database setup with Query Caching is on **mongo-with-caching** branch.
 * Redis setup code is on **redis** branch.
