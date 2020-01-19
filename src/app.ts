@@ -9,6 +9,7 @@ import bodyParser from "body-parser";
 import errorHandler from "errorhandler";
 import cors from "cors";
 import logger from "./util/logger.util";
+import {jobManager} from "./jobs";
 
 export class Application {
   private readonly APP: express.Application;
@@ -24,6 +25,7 @@ export class Application {
     this.initGlobalMiddleware();
     this.initServices();
     this.initRoutes();
+    this.initJobs();
   }
 
   private setupCORS(): void {
@@ -63,6 +65,10 @@ export class Application {
 
   private initRoutes(): void {
     this.APP.use(apiRoutes);
+  }
+
+  private initJobs(): void {
+    jobManager.init();
   }
 
   start(): void {
