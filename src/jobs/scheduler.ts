@@ -1,3 +1,5 @@
+import {validate} from "node-cron";
+
 export class Scheduler {
   public cronExpression = "* * * * *";
 
@@ -153,6 +155,9 @@ export class Scheduler {
   }
 
   cron(expression) {
+    if (!validate(expression)) {
+      return;
+    }
     this.cronExpression = expression;
     return this;
   }
