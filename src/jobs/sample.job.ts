@@ -1,7 +1,7 @@
-import {BaseJob} from "./base.job";
 import logger from "../util/logger.util";
+import {JobsAbstract} from "jobs-abstract-node";
 
-class SampleJob extends BaseJob {
+class SampleJob extends JobsAbstract {
   async handle(): Promise<unknown> {
     logger.silly(`Called Job`);
     return undefined;

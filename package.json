@@ -27,6 +27,7 @@
     "dotenv": "^8.1.0",
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
+    "jobs-abstract-node": "^1.0.1",
     "lodash": "^4.17.15",
     "node-cron": "^2.0.3",
     "request-validator-node": "^1.0.3",
