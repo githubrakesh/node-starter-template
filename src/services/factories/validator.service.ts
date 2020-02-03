@@ -8,9 +8,7 @@ class ValidatorFactory {
   static getInstance(): ValidatorService {
     logger.silly(`[${APP_IDENTIFIER}] ValidatorFactory getInstance()`);
 
-    this._instance = ValidatorService.init({schemaFolder: "schema"});
-
-    return this._instance;
+    return this._instance || (this._instance = ValidatorService.init({schemaFolder: "schema"}));
   }
 }
 
