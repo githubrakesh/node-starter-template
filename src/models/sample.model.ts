@@ -8,6 +8,9 @@ export const SampleSchema: Schema = new Schema({
   name: {
     type: String,
     required: true,
+  },
+  designation: {
+    type: String
   }
 });
 
